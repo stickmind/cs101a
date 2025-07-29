@@ -1,0 +1,34 @@
+# Topic 1. Karel the World
+
+```{toctree}
+:hidden:
+
+section-1/index
+assign-1/index
+```
+
+## Lectures
+
+- [Lecture 1. Welcome!](./1-Welcome-IntroKarel.pdf)
+
+  Introduction to CS101A, and start working with Karel the Robot!
+
+- [Lecture 2. Control Flow](./2-ControlFlow.pdf)
+
+  Cover `for` loops and `while` loops with Karel. Also begin talking about decomposition.
+
+  - *[Code](./lect-02.zip)*
+
+- [Lecture 3. Decomposition](./3-Decomposition.pdf)
+
+  Talk about decomposition and problem solving with Karel!
+
+  - *[Code](./lect-03.zip)*
+
+## Sections
+
+- [Section 1. Karel the Robot](./section-1/index.md)
+
+## Assignments
+
+- [Assignment 1. Karel the Robot](./assign-1/index.md)

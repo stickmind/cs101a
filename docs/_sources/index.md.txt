@@ -1,0 +1,63 @@
+# General Information
+
+```{toctree}
+:hidden:
+
+topic-1/index
+topic-2/index
+topic-3/index
+```
+
+Introduction to the engineering of computer applications emphasizing modern software engineering principles: program design, decomposition, encapsulation, abstraction, and testing. Emphasis is on good programming style and the built-in facilities of respective languages. Uses the Python programming language. No prior programming experience required.
+
+## Getting Started in Computing: CS101A
+
+CS101A is our first programming course. It teaches the widely-used Python programming language along with good software engineering principles. If you're interested in learning how to program a computer, this is the place to start. CS101A has no prerequisites – it's open to everyone! The course is explicitly designed to appeal to humanists and social scientists as well as hard-core techies. In fact, most CS 101A graduates end up majoring outside of the School of Engineering. The course requires no previous background in programming, but does require considerable dedication and hard work.
+
+We've found that some high school CS classes are more rigorous than others. If you do have high school CS experience, we recommend reviewing the syllabus for CS101A to get a sense of what it covers. If you feel that you've seen all these topics before, you may want to start off in CS101B. As always, feel free to ask the course staff if you have questions about where to begin!
+
+We recommend that you take CS101A if
+
+- You are interested in learning to program computers.
+- You have little to no prior programming experience.
+
+We recommend that you not take CS101A if
+
+- You have prior programming experience at a level comparable to an introductory college course.
+- You have significant prior programming experience in some other programming language and just want to learn how to program in Python.
+
+## The Next Step: CS101B
+
+CS101B is our second course in computer programming. It focuses on techniques for solving more complex problems than those covered in CS101A and for analyzing program efficiency. Specifically, it explores fundamental data types and data structures, recursive problem solving, graph algorithms, and basic algorithmic analysis.
+
+CS101B assumes programming experience at the level of CS101A, though you don't necessarily have to have taken CS101A to take CS101B. If you've seen basic control structures (loops, if statements, etc.), variables, arrays, and program decomposition, then you should be ready to take CS101B.
+
+CS101B is taught using the C++ programming language, but uses C++ more as a vehicle for ideas than as an object of study.
+
+We recommend that you take CS101B if
+
+- You have prior programming experience at the level of CS101A.
+- You are interested in learning more about general computer problem-solving.
+- You've programmed before but have not seen recursion, data structures, or algorithmic analysis.
+
+We recommend that you not take CS101B if
+
+- You already have completed equivalent coursework elsewhere.
+- You have little to no prior programming experience.
+- You have significant prior programming experience in some other programming language and just want to learn how to program in C++.
+
+## More Advanced Classes: CS102
+
+CS102 is designed as a first course in computer systems programming. It explores how high-level programming constructs are represented internally inside the computer and how those internal representations affect program behavior and performance. Along the way, it provides programming maturity and exposure to developing software in a Unix environment.
+
+CS102 has CS101B as a prerequisite and assumes an understanding of fundamental programming techniques and good programming style. As a result, it's rare for incoming students to jump directly into CS102 and to skip the CS101 series entirely. Typically, we'd only recommend this to students with a background comparable to CS101A/B and who already have good programming style. Most students, even those who go on to be CS majors, usually begin in CS101A/B.
+
+We recommend that you take CS102 if
+
+- You have completed CS101B or have the equivalent programming background, including familiarity with recursion and fundamental data structures (binary trees, dynamic arrays, linked lists, graphs, etc.)
+- You have experience writing readable code – writing comments, decomposing problems into smaller pieces, etc.
+
+We recommend that you not take CS102 if
+
+- You have never before taken a class in computer programming.
+- You have prior programming experience, but have not met the postconditions of CS101B.

@@ -1,0 +1,530 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN" data-content_root="../../">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Topic 2. Python Fundamentals" href="../../topic-2/index.html" /><link rel="prev" title="Section 1. Karel the Robot" href="../section-1/index.html" />
+
+    
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+        <title>Assignment 1. Karel the Robot - CS101A: Programming Methodology</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=354aac6f" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/tabs.css?v=4c969af8" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=302659d7" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pied-piper-admonition.css?v=e32e2275" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+<div class="announcement">
+  <aside class="announcement-content">
+     天将降大任于斯人也，必先苦其心志 
+  </aside>
+</div>
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../index.html"><div class="brand">CS101A: Programming Methodology</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
+  
+  
+  <span class="sidebar-brand-text">CS101A: Programming Methodology</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
+  <input class="sidebar-search" placeholder="搜索" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul class="current">
+<li class="toctree-l1 current has-children"><a class="reference internal" href="../index.html">Topic 1. Karel the World</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Topic 1. Karel the World</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../section-1/index.html">Section 1. Karel the Robot</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Assignment 1. Karel the Robot</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../topic-2/index.html">Topic 2. Python Fundamentals</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Topic 2. Python Fundamentals</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../topic-2/section-2/index.html">Section 2. Variables and Control Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../topic-2/assign-2/index.html">Assignment 2. Khan-sole Academy and Computing Interest</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../topic-3/index.html">Topic 3. Lists and Images</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>返回顶部</span>
+        </a>
+        <div class="content-icon-container">
+          
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <section class="tex2jax_ignore mathjax_ignore" id="assignment-1-karel-the-robot">
+<h1>Assignment 1. Karel the Robot<a class="headerlink" href="#assignment-1-karel-the-robot" title="Link to this heading">¶</a></h1>
+<p>This assignment consists of four Karel programs. Before you start on this assignment, make sure to read the handout (Using Karel with VS Code) in its entirety. When you are ready to start working on these programs, you need to:</p>
+<ol class="arabic simple">
+<li><p>Download the <a class="reference download internal" download="" href="../../_downloads/895ff03d782c0cd7f064612206b47d9a/Assignment1.zip"><span class="xref download myst">starter project</span></a></p></li>
+<li><p>Edit the Karel program files so that the assignment actually does what it’s supposed to do. This will involve a cycle of coding, testing, and debugging until everything works.</p></li>
+<li><p>Once you have gotten each part of the program to run correctly in the default world associated with the problem, you should make sure that your code runs properly in all of the worlds that we have provided for a given problem.</p></li>
+</ol>
+<p>The four Karel problems to solve are described on the following pages.</p>
+<p>Please remember that your Karel programs must limit themselves to the language features described in the Karel the Robot Learns Python. You may not use other features of Python (including variables, parameters, break, and return), even though the VSCode-based version of Karel accepts them.</p>
+<section id="problem-1-collectnewspaperkarel-py">
+<h2>Problem 1 (CollectNewspaperKarel.py)<a class="headerlink" href="#problem-1-collectnewspaperkarel-py" title="Link to this heading">¶</a></h2>
+<p>Your first task is to solve a simple story-problem in Karel’s world. Suppose that Karel has settled into its house, which is the square area in the center of Figure 1.</p>
+<figure class="align-default" id="id1">
+<img alt="../../_images/05-image1.png" src="../../_images/05-image1.png" />
+<figcaption>
+<p><span class="caption-text"><strong>Figure 1</strong>: Karel’s starting state for <strong>CollectNewspaperKarel</strong></span><a class="headerlink" href="#id1" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>Karel starts off in the northwest corner of its house as shown in the diagram. The problem you need to solve is to get Karel to collect the newspaper. The newspaper, like all objects in Karel’s world, is represented by a beeper. You must get Karel to pick up the newspaper located outside the doorway and then to return to its initial position.</p>
+<p>This exercise is simple and is meant to help you get you started programming with Karel. You can assume that every part of the world looks just as it does in the diagram: the house is exactly this size, the door is always in the position shown, and the beeper is just outside the door. Thus, all you have to do is write the sequence of commands necessary to have Karel:</p>
+<ol class="arabic simple">
+<li><p>Move to the newspaper,</p></li>
+<li><p>Pick it up, and</p></li>
+<li><p>Return to its starting point.</p></li>
+</ol>
+<p>Although the program does not have many lines of code, it is still worth getting some practice with decomposition. In your solution, include a function for each of the three steps shown in the outline above.</p>
+<p>Your program should run successfully in the following world:</p>
+<ul class="simple">
+<li><p><strong>CollectNewspaperKarel.w</strong> (default world)</p></li>
+</ul>
+<p>Note that all Karel worlds are located in the <strong>worlds</strong> folder in the Assignment 1 project folder.</p>
+</section>
+<section id="problem-2-stonemasonkarel-py">
+<h2>Problem 2 (StoneMasonKarel.py)<a class="headerlink" href="#problem-2-stonemasonkarel-py" title="Link to this heading">¶</a></h2>
+<p>Your next task is to repair the damage done to the Main Quad in the <a class="reference external" href="https://en.wikipedia.org/wiki/1989_Loma_Prieta_earthquake">1989 Loma Prieta earthquake</a>. In particular, Karel should repair a set of arches where some of the stones (represented by beepers, of course) are missing from the columns supporting the arches, as illustrated in Figure 2 (below).</p>
+<figure class="align-default" id="id2">
+<img alt="../../_images/05-image2.png" src="../../_images/05-image2.png" />
+<figcaption>
+<p><span class="caption-text"><strong>Figure 2</strong>: An initial example world with broken arches that <strong>StoneMasonKarel</strong> must repair</span><a class="headerlink" href="#id2" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>Your program should work on the world shown above, but it should be general enough to handle <em>any world that meets the basic conditions outlined at the end of this problem</em>. There are several example worlds in the starter folder, and your program should work correctly in all of them.</p>
+<p>When Karel is done, the missing stones in the columns should be replaced by beepers, so that the final picture resulting from the initial world shown in Figure 2 would look like the illustration in Figure 3 below.</p>
+<figure class="align-default" id="id3">
+<img alt="../../_images/05-image3.png" src="../../_images/05-image3.png" />
+<figcaption>
+<p><span class="caption-text"><strong>Figure 3</strong>: Karel should repair the Main Quad to a structurally sound state after completion.</span><a class="headerlink" href="#id3" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>Karel’s final location and the final direction Karel is facing at the end of the run do not matter.</p>
+<p>Karel may count on the following facts about the world:</p>
+<ul class="simple">
+<li><p>Karel starts at the corner where 1st Avenue and 1st Street meet, facing east, with an infinite number of beepers in Karel’s beeper bag. The first column should be built on 1st Avenue.</p></li>
+<li><p>The columns are always exactly four Avenues apart, so they would be built on 1st Avenue, 5th Avenue, 9th Avenue, and so on.</p></li>
+<li><p>The final column will always have a wall immediately after it. Although this wall appears after 13th Avenue in the example figure, your program should work for any number of beeper columns.</p></li>
+<li><p>The top of a beeper column will always be marked by a wall. However, Karel cannot assume that columns are always five units high, or even that all columns within a given world are the same height.</p></li>
+<li><p>In an initial world, some columns may already contain beepers representing stones that are still in place. Your program should not put a second beeper on corners that already have beepers. Avenues that will not have columns will never contain existing beepers.</p></li>
+</ul>
+<p>You should make sure your program runs successfully in all of the following worlds (which are just a few different examples to test out the generality of your solution):</p>
+<ul class="simple">
+<li><p><strong>StoneMasonKarel.w</strong> (default world),</p></li>
+<li><p><strong>SampleQuad1.w</strong>,</p></li>
+<li><p><strong>SampleQuad2.w</strong></p></li>
+</ul>
+<p>Note that all Karel worlds are located in the <strong>worlds</strong> folder in the Assignment 1 project folder.</p>
+</section>
+<section id="problem-3-checkerboardkarel-py">
+<h2>Problem 3 (CheckerboardKarel.py)<a class="headerlink" href="#problem-3-checkerboardkarel-py" title="Link to this heading">¶</a></h2>
+<p>Your third task is to get Karel to create a checkerboard pattern of beepers inside an empty rectangular world, as illustrated in Figure 4. (Karel’s final location and the final direction it is facing at the end of the run do not matter.)</p>
+<figure class="align-default" id="id4">
+<img alt="../../_images/05-image4.png" src="../../_images/05-image4.png" />
+<figcaption>
+<p><span class="caption-text"><strong>Figure 4</strong>: The beginning and end states for <strong>CheckerboardKarel</strong>.</span><a class="headerlink" href="#id4" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>This problem has a nice decomposition structure along with some interesting algorithmic issues. As you think about how you will solve the problem, you should make sure that your solution works with checkerboards that are different in size from the standard 8x8 checkerboard shown in the example above. Some examples of such cases are discussed below.</p>
+<p>Odd-sized checkerboards are tricky, and you should make sure that your program generates the following pattern in a 5x3 world:</p>
+<figure class="align-default" id="id5">
+<img alt="../../_images/05-image5.png" src="../../_images/05-image5.png" />
+<figcaption>
+<p><span class="caption-text"><strong>Figure 5</strong>: Karel should generate this checkerboard pattern for a 5x3 world.</span><a class="headerlink" href="#id5" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>Other special cases you should consider are worlds with only a single column or a single row. The starter code folder contains several sample worlds with these special cases, and you should make sure that your program works for each of them.</p>
+<p>This problem is hard: Try simplifying your solution with decomposition. Can you checker a single row/column? Make the row/column work for different widths/heights? Once you’ve finished a single row/column, can you make Karel fill two? Three? All of them? Incrementally developing your program in stages helps break it down into simpler parts and is a wise strategy for attacking hard programming problems.</p>
+<p>You should make sure your program runs successfully in all of the following worlds (which are just a few different examples to test out the generality of your solution):</p>
+<ul class="simple">
+<li><p><strong>CheckerboardKarel.w</strong> (default world),</p></li>
+<li><p><strong>8x1.w</strong>,</p></li>
+<li><p><strong>1x8.w</strong>,</p></li>
+<li><p><strong>7x7.w</strong>,</p></li>
+<li><p><strong>6x5.w</strong>,</p></li>
+<li><p><strong>3x5.w</strong>,</p></li>
+<li><p><strong>40x40.w</strong>,</p></li>
+<li><p><strong>1x1.w</strong></p></li>
+</ul>
+<p>Note that all Karel worlds are located in the <strong>worlds</strong> folder in the Assignment 1 project folder.</p>
+</section>
+<section id="problem-4-midpointkarel-py">
+<h2>Problem 4 (MidpointKarel.py)<a class="headerlink" href="#problem-4-midpointkarel-py" title="Link to this heading">¶</a></h2>
+<p>As an exercise in solving algorithmic problems, program Karel to place a single beeper at the center of 1st Street. For example, say Karel starts in the 5x5 world pictured in Figure 6.</p>
+<figure class="align-default" id="id6">
+<img alt="../../_images/05-image6.png" src="../../_images/05-image6.png" />
+<figcaption>
+<p><span class="caption-text"><strong>Figure 6</strong>: The beginning state for <strong>MidpointKarel</strong></span><a class="headerlink" href="#id6" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>Karel should end with Karel standing on a beeper in the following position (Figure 7):</p>
+<figure class="align-default" id="id7">
+<img alt="../../_images/05-image7.png" src="../../_images/05-image7.png" />
+<figcaption>
+<p><span class="caption-text"><strong>Figure 7</strong>: The end state for <strong>MidpointKarel</strong></span><a class="headerlink" href="#id7" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>Note that the final configuration of the world should have only a single beeper at the midpoint of 1st Street. Along the way, Karel is allowed to place additional beepers wherever it wants to, but must pick them all up again before it finishes. Similarly, if Karel paints/colors any of the corners in the world, they must all be uncolored before Karel finishes.</p>
+<p>In solving this problem, you may count on the following facts about the world:</p>
+<ul class="simple">
+<li><p>Karel starts at 1st Avenue and 1st Street, facing east, with an infinite number of beepers in its bag.</p></li>
+<li><p>The initial state of the world includes no interior walls or beepers.</p></li>
+<li><p>The world need not be square, but you may assume that it is at least as tall as it is wide.</p></li>
+</ul>
+<p>Your program, moreover, can assume the following simplifications:</p>
+<ul class="simple">
+<li><p>If the width of the world is odd, Karel must put the beeper in the center square. If the width is even, Karel may drop the beeper on either of the two center squares.</p></li>
+<li><p>It does not matter which direction Karel is facing at the end of the run.</p></li>
+</ul>
+<p>There are many different algorithms you can use to solve this problem so feel free to be creative!</p>
+<p>You should make sure your program runs successfully in all of the following worlds (which are just a few different examples to test out the generality of your solution):</p>
+<ul class="simple">
+<li><p><strong>MidpointKarel.w</strong> (default world),</p></li>
+<li><p><strong>Midpoint1.w</strong>,</p></li>
+<li><p><strong>Midpoint2.w</strong>,</p></li>
+<li><p><strong>Midpoint8.w</strong></p></li>
+</ul>
+<p>Note that all Karel worlds are located in the <strong>worlds</strong> folder in the Assignment 1 project folder.</p>
+</section>
+<section id="bonus-create-your-own-karel-project">
+<h2>Bonus: Create your own Karel project<a class="headerlink" href="#bonus-create-your-own-karel-project" title="Link to this heading">¶</a></h2>
+<p>If you finish early, you may <strong>optionally</strong> write a Karel project of your own choice. Modify <strong>ExtensionKarel.py</strong> to use Karel to complete any task of your choosing. Extensions are a great chance for practice and, if your extension is substantial enough, it might help you earn a + score. Make sure to write comments to explain what your program is doing and update <strong>ExtensionKarel.w</strong> to be an appropriate world for your program.</p>
+</section>
+<section id="submission">
+<h2>Submission<a class="headerlink" href="#submission" title="Link to this heading">¶</a></h2>
+<p>You should submit the following files (do not include any files not included in this list!):</p>
+<ul class="simple">
+<li><p>CollectNewspaperKarel.py</p></li>
+<li><p>StoneMasonKarel.py</p></li>
+<li><p>CheckerboardKarel.py</p></li>
+<li><p>MidpointKarel.py</p></li>
+</ul>
+<p>If you did an optional extension on the assignment, you should also submit:</p>
+<ul class="simple">
+<li><p>ExtensionKarel.py</p></li>
+</ul>
+</section>
+<section id="advice-tips-and-tricks">
+<h2>Advice, Tips, and Tricks<a class="headerlink" href="#advice-tips-and-tricks" title="Link to this heading">¶</a></h2>
+<p>All of the Karel problems you will solve, except for <strong>CollectNewspaperKarel</strong>, should be able to work in a variety of different worlds that match the problem specifications. When you first run your Karel programs, you will be presented with a sample world in which you can get started writing and testing your solution. However, we will test your solutions to each of the Karel programs, except for <strong>CollectNewspaperKarel</strong>, in a variety of test worlds. Unfortunately, each quarter, many students submit Karel programs that work brilliantly in the default worlds but which fail catastrophically in some of the other test worlds. Before you submit your Karel programs, <em>be sure to test them out in as many different worlds as you can</em>. We’ve provided several test worlds in which you can experiment, but you can also develop your own worlds for testing.</p>
+<p>When writing your Karel programs, to the maximum extent possible, try to use the top-down design techniques we developed in class. Break the task down into smaller pieces until each subtask is something that you know how to do using the basic Karel commands and control statements. These Karel problems are somewhat tricky, but appropriate use of top-down design can greatly simplify them.</p>
+<p>As mentioned in class, it is just as important to write clean and readable code as it is to write correct and functional code. A portion of your grade on this assignment (and the assignments that follow) will be based on how well-styled your code is. Before you submit your assignment, take a minute to review your code to check for stylistic issues like those mentioned below.</p>
+<p><strong>Have you added comments to your functions?</strong> To make your program easier to read, you can add comments before and inside your functions to make your intention clearer. Good comments give the reader a clue about what a function does and, in some cases, how it works. We recommend writing pre- and post-conditions for each function, as shown in the table below.</p>
+<div class="tab-set docutils">
+<input checked="True" class="tab-input" id="tab-set--0-input--1" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--1">Not-So-Good Style</label><div class="tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fill_row_with_beepers</span><span class="p">():</span>
+    <span class="k">while</span> <span class="n">front_is_clear</span><span class="p">():</span>
+        <span class="n">put_beeper</span><span class="p">()</span>
+        <span class="n">move</span><span class="p">()</span>
+        <span class="n">put_beeper</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<input class="tab-input" id="tab-set--0-input--2" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--2">Good Style</label><div class="tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fill_row_with_beepers</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Makes Karel move to the end of</span>
+<span class="sd">    the row, dropping a beeper</span>
+<span class="sd">    before each step it takes.</span>
+
+<span class="sd">    Pre-condition: None</span>
+
+<span class="sd">    Post-condition: Karel is facing</span>
+<span class="sd">    the same direction as before,</span>
+<span class="sd">    and every step between Karel&#39;s</span>
+<span class="sd">    old position and new position</span>
+<span class="sd">    has had a beeper added to it.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">while</span> <span class="n">front_is_clear</span><span class="p">():</span>
+        <span class="n">put_beeper</span><span class="p">()</span>
+        <span class="n">move</span><span class="p">()</span>
+    <span class="n">put_beeper</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Did you decompose the problem?</strong> There are many ways to break these Karel problems down into smaller, more manageable pieces. Decomposing the problem elegantly into smaller sub-problems will result in a small number of easy-to-read functions, each of which performs just one small task. Decomposing the problem in other ways may result in functions that are trickier to understand and test. Look over your code and check to see whether you’ve decomposed the problem into smaller pieces. Does your code consist of a few enormous functions (not so good), or many smaller functions (good)?</p>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="../../topic-2/index.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>下一页</span>
+                </div>
+                <div class="title">Topic 2. Python Fundamentals</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="../section-1/index.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>上一页</span>
+                </div>
+                
+                <div class="title">Section 1. Karel the Robot</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2024, <a href='https://www.stickmind.com/' target="_blank">StickMind</a>
+            </div>
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            本页目录
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Assignment 1. Karel the Robot</a><ul>
+<li><a class="reference internal" href="#problem-1-collectnewspaperkarel-py">Problem 1 (CollectNewspaperKarel.py)</a></li>
+<li><a class="reference internal" href="#problem-2-stonemasonkarel-py">Problem 2 (StoneMasonKarel.py)</a></li>
+<li><a class="reference internal" href="#problem-3-checkerboardkarel-py">Problem 3 (CheckerboardKarel.py)</a></li>
+<li><a class="reference internal" href="#problem-4-midpointkarel-py">Problem 4 (MidpointKarel.py)</a></li>
+<li><a class="reference internal" href="#bonus-create-your-own-karel-project">Bonus: Create your own Karel project</a></li>
+<li><a class="reference internal" href="#submission">Submission</a></li>
+<li><a class="reference internal" href="#advice-tips-and-tricks">Advice, Tips, and Tricks</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../../_static/documentation_options.js?v=7d86a446"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/scripts/furo.js?v=5fa4622c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/tabs.js?v=3ee01567"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    </body>
+</html>

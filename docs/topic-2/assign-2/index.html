@@ -1,0 +1,629 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN" data-content_root="../../">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Topic 3. Lists and Images" href="../../topic-3/index.html" /><link rel="prev" title="Section 2. Variables and Control Flow" href="../section-2/index.html" />
+
+    
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+        <title>Assignment 2. Khan-sole Academy and Computing Interest - CS101A: Programming Methodology</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=354aac6f" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/tabs.css?v=4c969af8" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=302659d7" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pied-piper-admonition.css?v=e32e2275" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+<div class="announcement">
+  <aside class="announcement-content">
+     天将降大任于斯人也，必先苦其心志 
+  </aside>
+</div>
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../index.html"><div class="brand">CS101A: Programming Methodology</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
+  
+  
+  <span class="sidebar-brand-text">CS101A: Programming Methodology</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
+  <input class="sidebar-search" placeholder="搜索" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul class="current">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../topic-1/index.html">Topic 1. Karel the World</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Topic 1. Karel the World</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../topic-1/section-1/index.html">Section 1. Karel the Robot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../topic-1/assign-1/index.html">Assignment 1. Karel the Robot</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="../index.html">Topic 2. Python Fundamentals</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Topic 2. Python Fundamentals</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../section-2/index.html">Section 2. Variables and Control Flow</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Assignment 2. Khan-sole Academy and Computing Interest</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../topic-3/index.html">Topic 3. Lists and Images</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>返回顶部</span>
+        </a>
+        <div class="content-icon-container">
+          
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <section class="tex2jax_ignore mathjax_ignore" id="assignment-2-khan-sole-academy-and-computing-interest">
+<h1>Assignment 2. Khan-sole Academy and Computing Interest<a class="headerlink" href="#assignment-2-khan-sole-academy-and-computing-interest" title="Link to this heading">¶</a></h1>
+<p>This assignment consists of multiple short problems to give you practice with several different concepts in Python (e.g., variables, control structures, etc.) as well as two longer programs. You can download the <a class="reference download internal" download="" href="../../_downloads/935f992502022e0871a376f65c18d4fb/Assignment2.zip"><span class="xref download myst">starter code</span></a> for this project. The starter project will provide Python files for you to write your programs in.</p>
+<p>The assignment is broken up into two parts. The first part of the assignment will give you practice writing short programs (we call them “sandcastles”). In the second part of the assignment, you’ll get the chance to create two larger programs. In the spirit of learning how to code, in this assignment we’re going to use code to help others learn! The second part of this assignment includes a mini version of Khan(-sole) Academy as well as a program to show users how to compute interest in a bank account.</p>
+<section id="part-1-sandcastles">
+<h2>Part 1: Sandcastles<a class="headerlink" href="#part-1-sandcastles" title="Link to this heading">¶</a></h2>
+<p>“Sandcastle” problems are meant to be fairly straightforward and make sure you’re solid on particular concepts (like control flow, variables, and functions) before moving on to writing larger programs. They’re kind of like building sandcastles in a sandbox – they’re meant to be fun to do and no one gets hurt. Please make sure you do these six problems before moving on to other parts of the assignment.</p>
+<section id="trace">
+<h3>Trace<a class="headerlink" href="#trace" title="Link to this heading">¶</a></h3>
+<p>For this problem, you will be tracing some code (below) by hand.</p>
+<p>Please try doing this by hand rather than plugging it into VS Code. What is printed to the console when the following function call is made? Put your answer in the file <code class="docutils literal notranslate"><span class="pre">trace.txt</span></code> provided in the Assignment 2 folder.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">This program is just meant to test your understanding</span>
+<span class="sd">of variables, control flow, and functions.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="k">def</span> <span class="nf">mystery</span><span class="p">():</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span> <span class="o">-</span> <span class="n">x</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">while</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">20</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+        <span class="n">mystery</span><span class="p">()</span>
+        <span class="n">x</span> <span class="o">*=</span> <span class="mi">2</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="subtract-numbers">
+<h3>Subtract Numbers<a class="headerlink" href="#subtract-numbers" title="Link to this heading">¶</a></h3>
+<p>Write a program in the file <code class="docutils literal notranslate"><span class="pre">subtract_numbers.py</span></code> that reads two real numbers from the user and prints the first number minus the second number. You can assume the user will always enter valid real numbers as input (negative values are fine). Yes, we know this problem is really similar to a problem we did in class – that’s why this problem is a sandcastle! A sample run of the program is shown below:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>This program subtracts one number from another.
+Enter first number: 5.5
+Enter second number: 2.1
+The result is 3.4.
+</pre></div>
+</div>
+</section>
+<section id="lift-off">
+<h3>Lift Off<a class="headerlink" href="#lift-off" title="Link to this heading">¶</a></h3>
+<p>Write a program in the file <code class="docutils literal notranslate"><span class="pre">liftoff.py</span></code> that prints out the calls for a spaceship that is about to launch. Countdown the numbers from 10 to 1 and then write “Liftoff!” Your program should include a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop using <code class="docutils literal notranslate"><span class="pre">range</span></code>. A sample run of the program is below.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+Liftoff!
+</pre></div>
+</div>
+</section>
+<section id="random-numbers">
+<h3>Random Numbers<a class="headerlink" href="#random-numbers" title="Link to this heading">¶</a></h3>
+<p>Write a program in the file <code class="docutils literal notranslate"><span class="pre">random_numbers.py</span></code> that prints 10 random integers (each random integer should have a value between 0 and 100, inclusive). Your program should use a constant named <code class="docutils literal notranslate"><span class="pre">NUM_RANDOM</span></code> (with a value of 10), which determines the number of random numbers to print. Your program should also use constants named <code class="docutils literal notranslate"><span class="pre">MIN_RANDOM</span></code> and <code class="docutils literal notranslate"><span class="pre">MAX_RANDOM</span></code> to determine the minimal and maximal values of the random numbers generated (with respective values 0 and 100). To generate random numbers, you should use the function <code class="docutils literal notranslate"><span class="pre">random.randint()</span></code> from Python’s <code class="docutils literal notranslate"><span class="pre">random</span></code> library (which we discussed in class). A sample run of the program is shown below.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>35
+10
+45
+59
+45
+100
+8
+31
+48
+6
+</pre></div>
+</div>
+</section>
+<section id="moon-weight">
+<h3>Moon Weight<a class="headerlink" href="#moon-weight" title="Link to this heading">¶</a></h3>
+<p>Humans first landed on the moon on July 20, 1969. (No, the moon landing was not faked.) People have often wondered how much they would weigh if they were on the moon. It turns out that on the moon, you would weigh 16.5% of your weight on Earth. Write a program <code class="docutils literal notranslate"><span class="pre">moon_weight.py</span></code> that asks the user for their weight (you can assume a real-valued input is given by the user) and prints out their weight on the moon. If the user enters a negative value (yes, they’re being mean and trying to break your program), you should just print out that weights can’t be negative. Remember when writing your solution, that it’s good programming style to use <code class="docutils literal notranslate"><span class="pre">constants</span></code> where appropriate. Two sample runs of the program are shown below.</p>
+<p>Sample run 1 (note the imprecision of floating-point numbers in the answer):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Enter your weight: 165.3
+Your weight on the moon is 27.274500000000003
+</pre></div>
+</div>
+<p>Sample run 2:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Enter your weight: -13
+Sorry, you can&#39;t have a negative weight.
+</pre></div>
+</div>
+</section>
+<section id="pythagorean-theorem">
+<h3>Pythagorean Theorem<a class="headerlink" href="#pythagorean-theorem" title="Link to this heading">¶</a></h3>
+<p>In geometry, you learned the Pythagorean theorem for the relationship among the lengths of the three sides of a right triangle:</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[a^2 + b^2 = c^2\]</div>
+</div>
+<p>which can alternatively be written as:</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[c = \sqrt{a^2 + b^2}\]</div>
+</div>
+<p>Write a program in the file <code class="docutils literal notranslate"><span class="pre">pythagorean.py</span></code> that gets two values for <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> as floats (you can assume that <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> will be positive real values) from the user and then calculates the solution of <code class="docutils literal notranslate"><span class="pre">c</span></code> and prints it. Recall that to compute square roots, you can use the function <code class="docutils literal notranslate"><span class="pre">math.sqrt()</span></code> from Python’s <code class="docutils literal notranslate"><span class="pre">math</span></code> library (which we discussed in class). A sample run of the program is shown below:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Enter values to compute the Pythagorean theorem.
+a: 9.7
+b: 3.2
+c = 10.21420579389313
+</pre></div>
+</div>
+</section>
+</section>
+<section id="part-2-longer-programs">
+<h2>Part 2: Longer programs<a class="headerlink" href="#part-2-longer-programs" title="Link to this heading">¶</a></h2>
+<section id="khan-sole-academy">
+<h3>Khan-sole Academy<a class="headerlink" href="#khan-sole-academy" title="Link to this heading">¶</a></h3>
+<p>Now that you’ve seen how programming can help us in a number of different areas, it’s time for you to implement Khan-sole Academy—a program that helps other people learn! In this problem, you’ll write a program in the file <code class="docutils literal notranslate"><span class="pre">khansole_academy.py</span></code> that randomly generates simple addition problems for the user, reads in the answer from the user, and then checks to see if they got it right or wrong, until the user appears to have mastered the material.</p>
+<p>More specifically, your program should be able to generate simple addition problems that involve adding two 2-digit integers (i.e., the numbers 10 through 99). The user should be asked for an answer to each problem. Your program should determine if the answer was correct or not, and give the user an appropriate message to let them know. Your program should keep giving the user problems until the user has gotten 3 problems <strong>correct in a row</strong>. (Note: the number of problems the user needs to get correctly in a row to complete the program is just one example of a good place to specify a constant in your program).</p>
+<p>A sample run of the program is shown below:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>What is 51 + 79?
+Your answer: 120
+Incorrect. The expected answer is 130
+What is 33 + 19?
+Your answer: 42
+Incorrect. The expected answer is 52
+What is 55 + 11?
+Your answer: 66
+Correct! You&#39;ve gotten 1 correct in a row.
+What is 84 + 25?
+Your answer: 109
+Correct! You&#39;ve gotten 2 correct in a row.
+What is 26 + 58?
+Your answer: 74
+Incorrect. The expected answer is 84
+What is 98 + 85?
+Your answer: 183
+Correct! You&#39;ve gotten 1 correct in a row.
+What is 79 + 66?
+Your answer: 145
+Correct! You&#39;ve gotten 2 correct in a row.
+What is 97 + 20?
+Your answer: 117
+Correct! You&#39;ve gotten 3 correct in a row.
+Congratulations! You mastered addition.
+</pre></div>
+</div>
+<p>As a side note, one of the earliest programs Mehran wrote (with his friend Matthew) when he was first learning how to program was very similar to Khansole Academy. It was called “M&amp;M’s Math Puzzles.” It was written in a language named BASIC on a computer that had 4K of memory (that’s 4 Kilobytes) and used cassette tapes (the same kind used for music in the 1970’s) to store information. Yeah, Mehran is old.</p>
+</section>
+<section id="computing-interest">
+<h3>Computing Interest<a class="headerlink" href="#computing-interest" title="Link to this heading">¶</a></h3>
+<p>We want to write a program <code class="docutils literal notranslate"><span class="pre">compute_interest.py</span></code> that helps a user compute how much interest their bank account will accrue over time. The program starts by asking the user for an initial account balance, which is entered as a float (you can assume a positive real-value is entered). The program then asks the user for a starting year and month as well as an ending year and month, all entered as integers. The program then asks the user for a monthly interest rate. For example, a 2% interest rate would be entered by the user as the value 0.02.</p>
+<p>The program should print out the monthly balance in the account from the starting year/month up to and including the ending year/month with <strong>interest accruing monthly</strong>. The amount of interest earned each month is simply the amount in the account in that month multiplied by the interest rate entered by the user. So (using a 2% interest rate) an account with <span class="math notranslate nohighlight">\(1000.00 at the start of the month would earn \)</span>20.00 that month and have a total of $1020.00 at the start of the next month.</p>
+<p>After printing the monthly balance projection, your program should then repeat the process of asking the user for a new interest rate and printing the monthly balance in the account using the same starting account balance, starting year/month, and ending year/month as the user initially entered in the program. The program should end if the user specifies a monthly interest rate of 0%.</p>
+<p>You can assume that the user will always enter a valid (i.e., positive) value for the start/end year and an integer from 1 to 12 for the start/end month. If the starting year/month is the same as or after the ending year/month, your program should not ask for an interest rate, but rather simply print “Starting date needs to be before the ending date.” and then end without an error.</p>
+<p>The values for the initial balance, the starting year/month, and the ending year/month are entered by the user. The monthly balance is simply printed as a float, so you don’t have to worry about rounding to the nearest cent.</p>
+<p>Remember that it’s a good idea to decompose your program and use parameters with functions as needed to pass information around your program. That’s really part of good programming style.</p>
+<p>Two sample runs of the program are shown below.</p>
+<p>Sample run 1 (showing what happens if the user enters a starts year/month that is after the ending year/month. Note the program simply ends without asking for an interest rate.):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Initial balance: 500.00
+Start year: 2020
+Start month: 9
+End year: 2019
+End month: 10
+Starting date needs to be before the ending date.
+</pre></div>
+</div>
+<p>Sample run 2:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Initial balance: 1000.00
+Start year: 2022
+Start month: 5
+End year: 2024
+End month: 3
+Interest rate (0 to quit): 0.02
+Year 2022, month 5 balance: 1000.0
+Year 2022, month 6 balance: 1020.0
+Year 2022, month 7 balance: 1040.4
+Year 2022, month 8 balance: 1061.208
+Year 2022, month 9 balance: 1082.43216
+Year 2022, month 10 balance: 1104.0808032
+Year 2022, month 11 balance: 1126.162419264
+Year 2022, month 12 balance: 1148.6856676492798
+Year 2023, month 1 balance: 1171.6593810022655
+Year 2023, month 2 balance: 1195.0925686223109
+Year 2023, month 3 balance: 1218.994419994757
+Year 2023, month 4 balance: 1243.3743083946522
+Year 2023, month 5 balance: 1268.2417945625452
+Year 2023, month 6 balance: 1293.6066304537962
+Year 2023, month 7 balance: 1319.478763062872
+Year 2023, month 8 balance: 1345.8683383241296
+Year 2023, month 9 balance: 1372.7857050906123
+Year 2023, month 10 balance: 1400.2414191924245
+Year 2023, month 11 balance: 1428.246247576273
+Year 2023, month 12 balance: 1456.8111725277984
+Year 2024, month 1 balance: 1485.9473959783543
+Year 2024, month 2 balance: 1515.6663438979213
+Year 2024, month 3 balance: 1545.9796707758796
+Interest rate (0 to quit): 0.05
+Year 2022, month 5 balance: 1000.0
+Year 2022, month 6 balance: 1050.0
+Year 2022, month 7 balance: 1102.5
+Year 2022, month 8 balance: 1157.625
+Year 2022, month 9 balance: 1215.50625
+Year 2022, month 10 balance: 1276.2815624999998
+Year 2022, month 11 balance: 1340.0956406249998
+Year 2022, month 12 balance: 1407.1004226562497
+Year 2023, month 1 balance: 1477.4554437890622
+Year 2023, month 2 balance: 1551.3282159785153
+Year 2023, month 3 balance: 1628.894626777441
+Year 2023, month 4 balance: 1710.3393581163132
+Year 2023, month 5 balance: 1795.8563260221288
+Year 2023, month 6 balance: 1885.6491423232353
+Year 2023, month 7 balance: 1979.9315994393971
+Year 2023, month 8 balance: 2078.928179411367
+Year 2023, month 9 balance: 2182.8745883819356
+Year 2023, month 10 balance: 2292.0183178010325
+Year 2023, month 11 balance: 2406.619233691084
+Year 2023, month 12 balance: 2526.950195375638
+Year 2024, month 1 balance: 2653.29770514442
+Year 2024, month 2 balance: 2785.962590401641
+Year 2024, month 3 balance: 2925.260719921723
+Interest rate (0 to quit): 0
+</pre></div>
+</div>
+</section>
+</section>
+<section id="possible-extensions">
+<h2>Possible Extensions<a class="headerlink" href="#possible-extensions" title="Link to this heading">¶</a></h2>
+<p>Once you’ve completed all the required parts of the assignment, you might want to consider adding some extensions.</p>
+<section id="extend-khansole-academy">
+<h3>Extend Khansole Academy<a class="headerlink" href="#extend-khansole-academy" title="Link to this heading">¶</a></h3>
+<p>You could consider extending your Khansole Academy program to, for example, add more problem types (subtraction, multiplication, division, and more). You could also consider problems beyond arithmetic. If you could build your own version of Khansole Academy, what would you use it to help people learn? Be creative and enjoy.</p>
+</section>
+<section id="hailstones">
+<h3>Hailstones<a class="headerlink" href="#hailstones" title="Link to this heading">¶</a></h3>
+<p>A separate (optional) problem you could consider writing is based on a problem in Douglas Hofstadter’s Pulitzer-prize-winning book Gödel, Escher, Bach. That book contains many interesting mathematical puzzles, many of which can be expressed in the form of computer programs. In Chapter XII, Hofstadter mentions a wonderful problem that is well within the scope of what you know. The problem can be expressed as follows:</p>
+<ul class="simple">
+<li><p>Pick some positive integer and call it n.</p></li>
+<li><p>If n is even, divide it by two.</p></li>
+<li><p>If n is odd, multiply it by three and add one.</p></li>
+<li><p>Continue this process until n is equal to one.</p></li>
+</ul>
+<p>On page 401 of the Vintage edition of his book, Hofstadter illustrates this process with thfollowing example, starting with the number 15:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>15 is odd, so I make 3n+1: 46
+46 is even, so I take half: 23
+23 is odd, so I make 3n+1: 70
+70 is even, so I take half: 35
+35 is odd, so I make 3n+1: 106
+106 is even, so I take half: 53
+53 is odd, so I make 3n+1: 160
+160 is even, so I take half: 80
+80 is even, so I take half: 40
+40 is even, so I take half: 20
+20 is even, so I take half: 10
+10 is even, so I take half: 5
+5 is odd, so I make 3n+1: 16
+16 is even, so I take half: 8
+8 is even, so I take half: 4
+4 is even, so I take half: 2
+2 is even, so I take half: 1
+</pre></div>
+</div>
+<p>As you can see from this example, the numbers go up and down, but eventually—at least for all numbers that have ever been tried—comes down to end in 1. In some respects, this process is reminiscent of the formation of hailstones, which get carried upward by the winds over and over again before they finally descend to the ground. Because of this analogy, this sequence of numbers is usually called the <strong>Hailstone sequence</strong>, although it goes by many other names as well.</p>
+<p>You might want to write a Python program that reads in a number from the user and then displays the Hailstone sequence for that number, just as in Hofstadter’s book, followed by a line showing the number of steps taken to reach 1. For example, here’s a sample run of what such a program might look like:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Enter a number: 17
+17 is odd, so I make 3n + 1: 52
+52 is even, so I take half: 26
+26 is even, so I take half: 13
+13 is odd, so I make 3n + 1: 40
+40 is even, so I take half: 20
+20 is even, so I take half: 10
+10 is even, so I take half: 5
+5 is odd, so I make 3n + 1: 16
+16 is even, so I take half: 8
+8 is even, so I take half: 4
+4 is even, so I take half: 2
+2 is even, so I take half: 1
+The process took 12 steps to reach 1
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="../../topic-3/index.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>下一页</span>
+                </div>
+                <div class="title">Topic 3. Lists and Images</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="../section-2/index.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>上一页</span>
+                </div>
+                
+                <div class="title">Section 2. Variables and Control Flow</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2024, <a href='https://www.stickmind.com/' target="_blank">StickMind</a>
+            </div>
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            本页目录
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Assignment 2. Khan-sole Academy and Computing Interest</a><ul>
+<li><a class="reference internal" href="#part-1-sandcastles">Part 1: Sandcastles</a><ul>
+<li><a class="reference internal" href="#trace">Trace</a></li>
+<li><a class="reference internal" href="#subtract-numbers">Subtract Numbers</a></li>
+<li><a class="reference internal" href="#lift-off">Lift Off</a></li>
+<li><a class="reference internal" href="#random-numbers">Random Numbers</a></li>
+<li><a class="reference internal" href="#moon-weight">Moon Weight</a></li>
+<li><a class="reference internal" href="#pythagorean-theorem">Pythagorean Theorem</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#part-2-longer-programs">Part 2: Longer programs</a><ul>
+<li><a class="reference internal" href="#khan-sole-academy">Khan-sole Academy</a></li>
+<li><a class="reference internal" href="#computing-interest">Computing Interest</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#possible-extensions">Possible Extensions</a><ul>
+<li><a class="reference internal" href="#extend-khansole-academy">Extend Khansole Academy</a></li>
+<li><a class="reference internal" href="#hailstones">Hailstones</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../../_static/documentation_options.js?v=7d86a446"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/scripts/furo.js?v=5fa4622c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/tabs.js?v=3ee01567"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.staticfile.org/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+    </body>
+</html>

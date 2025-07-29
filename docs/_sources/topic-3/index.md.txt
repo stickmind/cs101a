@@ -1,0 +1,23 @@
+# Topic 3. Lists and Images
+
+## Lectures
+
+- [Lecture 9. Lists](./9-Lists.pdf)
+
+  Learn about lists in Python
+
+- [Lecture 10. Images](./10-Images.pdf)
+
+  Learn how image are represented and write code that can manipulate images
+
+  - *[Code](./lect-10.zip)*
+
+  - [Image Reference](./image-reference/index.md)
+
+- [Lecture 11. More Lists](./11-MoreLists.pdf)
+- [Lecture 12. Lists Wrap Up](./12-ListsWrapUp.pdf)
+- [Lecture 13. More Graphics](./13-MoreGraphics.pdf)
+
+## Sections
+
+## Assignments

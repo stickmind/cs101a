@@ -1,0 +1,49 @@
+# Topic 2. Python Fundamentals
+
+
+```{toctree}
+:hidden:
+
+section-2/index
+assign-2/index
+```
+
+## Lectures
+
+- [Lecture 4. Intro Python](./4-IntroPython.pdf)
+
+  Learn the basics of Python: variables and console programs.
+
+  - *[Code](./lect-04.zip)*
+
+- [Lecture 5. Expressions](./5-Expressions.pdf)
+
+  Talking about expressions, constants and randomness.
+
+  - *[Code](./lect-05.zip)*
+
+- [Lecture 6. Control Flow Revisited](./6-ControlFlowRevisited.pdf)
+
+  Learn about Boolean variables and use `for`/`while`/`if` statements in Python.
+
+  - *[Code](./lect-06.zip)*
+
+- [Lecture 7. Functions](./7-Functions.pdf)
+
+  Learn about functions and trace function calls using stacks.
+
+  - *[Code](./lect-07.zip)*
+
+- [Lecture 8. Parameters](./8-Parameters.pdf)
+
+  Get more practice with function parameters and learn about Python's doctest feature.
+
+  - *[Code](./lect-08.zip)*
+
+## Sections
+
+- [Section 2. Variables and Control Flow](./section-2/index.md)
+
+## Assignments
+
+- [Assignment 2. Khan-sole Academy and Computing Interest](./assign-2/index.md)

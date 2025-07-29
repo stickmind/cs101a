@@ -1,0 +1,322 @@
+# Section 2. Variables and Control Flow
+
+This section, we'll practice using variables and using control flow (while loops, if statements) in Python along with graphics. Although we've left Karel behind, while loops and other control flow works the same as before. The last problem on this handout will also give you some practice with helper functions that take in some value - we call these values parameters!
+
+Here is the starter code:
+
+- 📦 [Starter code](./Section2.zip)
+
+## Tracing 1
+
+Here's your first tracing problem! Try tracing through this program **by hand** without running the code. Watch how each variable changes and how the flow of the program progresses. We recommend drawing each variable inside a box, just as we did in lecture, to keep track of how the values are changing.
+
+What do the two update lines for `hour` and `day` do? Why are they written that way?
+
+```python
+# File: reset_cycle.py
+# ---------------------
+# This program simulates a simple reset cycle based on the time of day and week.
+
+def main():
+    hour = 23  # 0–23 format
+    day = 6    # 1 = Monday, ..., 7 = Sunday
+    energy = 8
+
+    while True:
+        if (4 < day <= 6) or hour % 12 == 0:
+            if energy < 10:
+                energy = 10
+            else:
+                energy *= 2
+        elif day == 7:
+            energy = 50
+
+        # What is the purpose of this section?
+        hour += 1
+        if hour > 23:
+            hour = 0
+            day += 1
+            if day > 7:
+                day = 1
+
+        if energy >= 20:
+            break
+
+    print(f"hour = {hour}")
+    print(f"day = {day}")
+    print(f"energy = {energy}")
+```
+
+P.S. This problem gives you a quick look at a way to do "wrap-around" logic (for hours and days) — something that's super useful when working with time or cycles!
+
+:::{dropdown} Solution
+
+hour = 1
+day = 7
+energy = 20
+
+Explanation:
+
+- Start with `hour = 23`, `day = 6`, `energy = 8`
+- Iteration 1:
+  - `day` is between 5 and 6 → energy set to 10
+  - hour becomes 0, day becomes 7
+- Iteration 2:
+  - `hour % 12 == 0` and `energy ≥ 10` → `energy *= 2` → now 20
+  - hour becomes 1, day stays at 7
+- `energy >= 20`, so the loop ends
+:::
+
+## Tracing 2
+
+This problem gives you some practice working with functions that take parameters. Trace through and determing what it prints.
+
+```python
+# File: mystery.py
+# ----------------------------
+# Trace this program and determine what it prints.
+# Pay close attention to how parameters are passed and updated.
+
+def mystery(a, b, c):
+    a += 1
+    b *= 2
+    if c % 2 == 0:
+        c += b
+    return a + b + c
+
+def main():
+    a = 1
+    b = 2
+    c = 3
+
+    x = mystery(c, a, b)
+    a * 2  # Pay close attention to this
+
+    print("a =", a)
+    print("b =", b)
+    print("c =", c)
+    print("x =", x)
+```
+
+:::{dropdown} Solution
+
+a = 1
+b = 2
+c = 3
+x = 10
+:::
+
+## Calculate Dog Years
+
+Everyone knows that our furry friends age at a different rate than humans. Write a program that asks the user for a human age and prints the equivalent dog age using the fact that there are seven dog years per human year. Consider defining a constant `DOG_YEARS_PER_HUMAN_YEAR` for this value. You can assume the user types in an integer age, but not necessarily that the integer is positive. If it isn't, print an error message.
+
+Your program should continuously ask the user for human ages until the user types 0, at which the program should end.
+
+Here's a sample run:
+
+```none
+Enter an age in human years: -12
+Sorry, please enter a positive number or 0 to exit
+Enter an age in human years: 13
+The age in dog years is 91
+Enter an age in human years: 0
+```
+
+:::{dropdown} Solution
+
+```python
+SENTINEL = 0
+
+def main():
+    while True:
+        years = int(input('Enter an age in human years (enter 0 to exit): '))
+        if years == SENTINEL:
+            break
+        if years < 0:
+            print('Sorry, please enter a positive number or 0 to exit')
+        else:
+            print('The age in dog years is ' + str(7 * years))
+
+if __name__ == "__main__":
+    main()
+```
+:::
+
+## Finding Factors
+
+Implement a program that asks the user to enter an integer, then prints out all the factors of the given number, one by one. Your function should check that the entered number is greater than 0. The program should keep asking for numbers until 0 (the sentinel value) is entered.
+
+Use a helper function called `print_factors(num)` that takes in the number the user enters `num` as a parameter and prints all of its factors. You can do your input validation (checking whether the number is negative or equal to the sentinel) in `main()`, but once you've determined that you want to factor this number, call the helper function!
+
+Here's a sample run:
+
+```python
+Enter a number to factor: -10
+Please input a positive number
+Enter a number to factor: 42
+1
+2
+3
+6
+7
+14
+21
+42
+Enter a number to factor: 53
+1
+53
+Enter a number to factor: 0
+```
+
+As a fun challenge, after printing out all the factors, print a special message when the number is prime! How do you know a number is prime, based on its factors? Should this code go in `main()` or `print_factors(num)`?
+
+:::{dropdown} Solution
+
+```python
+SENTINEL = 0
+
+def print_factors(num):
+    """
+    This function takes in an integer num and prints
+    its factors. If the number is prime, it prints
+    that as well.
+    """
+    # start factor counter at 0
+    factor_count = 0
+    # loop from 1 up to and not including num + 1
+    for i in range(1, num + 1):
+        if num % i == 0:
+            print(i)
+            factor_count += 1
+    # two factors: the number itself and 1
+    if factor_count == 2:
+        print(str(num) + ' is prime!')
+
+def main():
+    num = int(input('Enter a number to factor: '))
+    while num != SENTINEL:
+        if num < 0:
+            print('Please input a positive number')
+        else:
+            print_factors(num)
+        num = int(input('Enter a number to factor: '))
+
+if __name__ == "__main__":
+    main()
+```
+:::
+
+## Bonus Challenge: Bot Duel 🥊 (Optional)
+
+This optional challenge gives you more practice with variables, loops, if statements, and randomness — all wrapped in a fun battle game!
+
+Write a program that simulates a duel between you and a bot. Each of you starts with a set amount of stamina. On each turn:
+
+- You choose a move:
+  - 1 = Attack: Deal random damage to the bot.
+  - 2 = Heal: Restore a bit of your stamina.
+- The bot automatically attacks back, dealing random damage to you.
+
+The game continues until either the user or bot runs out of stamina (or both).
+
+You are provided with the following constants:
+
+- `USER_STARTING_STAMINA`
+- `BOT_STARTING_STAMINA`
+- `USER_MIN_ATTACK`, `USER_MAX_ATTACK`
+- `BOT_MIN_ATTACK`, `BOT_MAX_ATTACK`
+- `STAMINA_HEAL_AMOUNT`
+
+You can assume that the user will always enter a valid integer value of 1 or 2 when prompted.
+
+Here's a sample run:
+
+```none
+Your stamina: 20
+Bot stamina: 25
+Choose your move (1 = attack, 2 = heal): 1
+You hit the bot for 2 damage!
+The bot hits you for 12 damage!
+
+Your stamina: 8
+Bot stamina: 23
+Choose your move (1 = attack, 2 = heal): 2
+You heal for 5 stamina!
+The bot hits you for 10 damage!
+
+Your stamina: 3
+Bot stamina: 23
+Choose your move (1 = attack, 2 = heal): 1
+You hit the bot for 4 damage!
+The bot hits you for 5 damage!
+
+
+Your stamina: -2
+Bot stamina: 19
+You have been defeated!
+```
+
+:::{dropdown} Solution
+
+```python
+"""
+File: duel_bot.py
+-----------------
+This program simulates a simple duel between the user and a bot.
+Each turn, the user chooses to attack or heal, and the bot attacks back.
+The game ends when either the user or the bot runs out of stamina.
+"""
+
+import random
+
+# Constants
+# Feel free to play around with different values here
+USER_STARTING_STAMINA = 20
+BOT_STARTING_STAMINA = 25
+
+USER_MIN_ATTACK = 1
+USER_MAX_ATTACK = 8
+
+BOT_MIN_ATTACK = 3
+BOT_MAX_ATTACK = 12
+
+STAMINA_HEAL_AMOUNT = 5
+
+def main():
+    user_stamina = USER_STARTING_STAMINA
+    bot_stamina = BOT_STARTING_STAMINA
+
+    while user_stamina > 0 and bot_stamina > 0:
+        print(f"Your stamina: {user_stamina}")
+        print(f"Bot stamina: {bot_stamina}")
+        move = int(input("Choose your move (1 = attack, 2 = heal): "))
+
+        if move == 1:
+            damage = random.randint(USER_MIN_ATTACK, USER_MAX_ATTACK)
+            bot_stamina -= damage
+            print(f"You hit the bot for {damage} damage!")
+        elif move == 2:
+            user_stamina += STAMINA_HEAL_AMOUNT
+            print(f"You heal for {STAMINA_HEAL_AMOUNT} stamina!")
+
+        if bot_stamina <= 0:
+            break  # Bot is defeated
+
+        bot_damage = random.randint(BOT_MIN_ATTACK, BOT_MAX_ATTACK)
+        user_stamina -= bot_damage
+        print(f"The bot hits you for {bot_damage} damage!")
+
+    print()
+    print(f"Your stamina: {user_stamina}")
+    print(f"Bot stamina: {bot_stamina}")
+    if user_stamina > 0 and bot_stamina <= 0:
+        print("You defeated the bot!")
+    elif bot_stamina > 0 and user_stamina <= 0:
+        print("You have been defeated!")
+    else:
+        print("It's a draw!")
+
+if __name__ == "__main__":
+    main()
+```
+:::
